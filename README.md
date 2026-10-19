@@ -12,8 +12,9 @@ npm run build    # static site in dist/
 
 Everything that changes at launch lives in `src/config.ts`:
 
-- `downloadUrl`: the notarized download. Empty shows "Coming soon".
-- `checkoutUrl`: the Polar checkout link for Editing. Empty shows "Coming soon".
+- `launched`: the launch switch. While `false`, Download and Buy both show "Coming soon"; set it to `true` to go live.
+- `downloadLink` / `checkoutLink`: the R2 download (`https://downloads.stillread.app/Stillread.dmg`) and the Polar checkout.
+- `customerPortalUrl`: Polar's customer portal (`polar.sh/cascadia-digital-inc/portal`).
 - `supportEmail`: shown (lightly obfuscated) on every page.
 - `fathomSite`: Fathom site ID. Empty keeps analytics off.
 
