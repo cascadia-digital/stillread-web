@@ -1,5 +1,5 @@
-// A small hand-kept sitemap. Add /changelog here when it exists.
-const pages = ['/', '/support', '/privacy', '/terms', '/refunds'];
+// A small hand-kept sitemap.
+const pages = ['/', '/changelog', '/support', '/privacy', '/terms', '/refunds'];
 
 export function GET({ site }: { site: URL }) {
     const urls = pages.map((path) => `  <url><loc>${new URL(path, site).href}</loc></url>`).join('\n');

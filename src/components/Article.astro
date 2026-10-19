@@ -7,12 +7,13 @@ interface Props {
     heading: string;
     description: string;
     eyebrow?: string;
+    noindex?: boolean;
 }
 
-const { title, heading, description, eyebrow } = Astro.props;
+const { title, heading, description, eyebrow, noindex = false } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} noindex={noindex}>
     <article class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-8 sm:pt-24">
         {eyebrow && <p class="font-sans text-xs font-medium tracking-[0.14em] text-ink-faint uppercase">{eyebrow}</p>}
         <h1 class="mt-3 text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">{heading}</h1>

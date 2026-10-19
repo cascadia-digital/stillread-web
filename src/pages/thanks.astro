@@ -1,0 +1,21 @@
+---
+// Polar's success page: https://stillread.app/thanks?checkout_id={CHECKOUT_ID}
+import Article from '../components/Article.astro';
+import SupportEmail from '../components/SupportEmail.astro';
+import { customerPortalUrl } from '../config';
+---
+
+<Article title="Thank you · Stillread" heading="Thank you" eyebrow="Editing unlocked" description="Your Stillread licence key is on its way by email." noindex>
+    <p class="text-xl">Your licence key is on its way by email. It usually arrives within a minute or two, from Polar.</p>
+
+    <h2>Unlock editing</h2>
+    <ol>
+        <li>Open Stillread and any note.</li>
+        <li>Press <strong>⌘E</strong>, then choose <strong>Enter Licence Key…</strong></li>
+        <li>Paste the key from the email and click <strong>Activate</strong>.</li>
+    </ol>
+    <p>You can also activate in <strong>Stillread → Settings → Licence</strong>. Your key works on up to 2 Macs, and every 1.x update is free.</p>
+
+    <h2>Can't find the email?</h2>
+    <p>Check your spam folder, or find your key in <a href={customerPortalUrl}>Polar's customer portal</a> by signing in with the email you used to buy. Still stuck? Email <SupportEmail /> and I'll sort it out.</p>
+</Article>

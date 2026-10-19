@@ -22,10 +22,11 @@ import SupportEmail from '../components/SupportEmail.astro';
 
     <h2>Buying and activating Editing</h2>
     <p>Editing is sold through <a href="https://polar.sh">Polar</a>, which acts as the merchant of record. When you buy, Polar collects your name, email address and payment details to process the payment and send your licence key. We receive your name, email address and order details from Polar so we can help with support and refunds. We never see your full card details. Polar handles this information under <a href="https://polar.sh/legal/privacy">its privacy policy</a>.</p>
-    <p>When you enter your licence key, Stillread sends the key and an anonymous identifier for your Mac to Polar to confirm the key and keep count of your activations (up to 2 Macs). Nothing about your notes is sent.</p>
+    <p>When you enter your licence key, Stillread sends Polar exactly three things: the key, a random activation ID made up on your Mac when you activate (it isn't your Mac's name, serial number or any hardware identifier), and Stillread's version number. Polar uses these to confirm the key and count your activations (up to 2 Macs). The activation is saved in your Mac's Keychain.</p>
+    <p>About once a day, while Stillread is open, it sends the key and activation ID to Polar again to confirm the licence is still active. Choosing <strong>Deactivate This Mac</strong> in Settings sends them once more to free that Mac. Nothing about your notes or files is ever sent.</p>
 
     <h2>Updates</h2>
-    <p>Stillread checks for updates by downloading a small file from stillread.app. Like any web request, this includes your IP address, which our host may keep in short-lived server logs. The update check doesn't send any information about your Mac or your notes.</p>
+    <p>Stillread asks before it starts checking for updates automatically, and you can change that later. Each check downloads a small file from stillread.app. The request includes Stillread's version number and, like any web request, your IP address, which our host may keep in short-lived server logs. It doesn't send any other information about your Mac or your notes. Updates themselves download from downloads.stillread.app, which is served by Cloudflare.</p>
 
     <h2>This website</h2>
     <p>This website (stillread.app) is hosted by Netlify, which keeps standard server logs. We use <a href="https://usefathom.com/privacy">Fathom Analytics</a> to count visits. Fathom doesn't use cookies, doesn't collect personal information, and doesn't track you across other websites. We only see totals, like how many people visited a page.</p>

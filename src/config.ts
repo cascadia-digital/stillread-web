@@ -14,3 +14,6 @@ export const fathomSite = 'AWEUOVTD';
 
 export const price = '$9.99';
 export const minimumMacOS = 'macOS 14 Sonoma or later';
+
+/** Polar's customer portal, where buyers find their key and manage their Macs. Confirm the slug in Polar. */
+export const customerPortalUrl = 'https://polar.sh/stillread/portal';
