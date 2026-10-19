@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Shot from '../components/Shot.astro';
+import Button from '../components/Button.astro';
+import { Image } from 'astro:assets';
+import icon from '../assets/icon.png';
+import { downloadUrl, checkoutUrl, price, minimumMacOS } from '../config';
+
+const gfm = ['Tables', 'Task lists', 'Footnotes', 'GitHub alerts', 'Mermaid diagrams', 'Highlighted code'];
+
+const free = [
+    'Reading, with every reading feature',
+    'Folders, the sidebar and live reload',
+    'Quick Look previews in Finder',
+    'Focus Mode, light and dark',
+];
+const editing = [
+    'Edit any note with ⌘E',
+    'Use it on up to 2 Macs',
+    'Free updates through every 1.x version',
+    'No subscription',
+];
+---
+
+<Layout
+    title="Stillread: a calm Markdown reader for the Mac"
+    description="Stillread is a quiet place to read Markdown on your Mac. Open a folder of notes, docs or plans and read them in a good typeface, at a comfortable width, with nothing else in the way."
+>
+    {/* Hero */}
+    <section class="mx-auto max-w-5xl px-4 pt-16 text-center sm:px-8 sm:pt-24">
+        <div class="fade-in">
+            <Image src={icon} alt="" width={160} height={160} class="mx-auto size-28 sm:size-32" loading="eager" />
+            <h1 class="mt-6 text-5xl font-semibold tracking-[-0.025em] sm:text-6xl">Stillread</h1>
+            <p class="mx-auto mt-5 max-w-xl text-xl leading-relaxed text-ink-soft sm:text-2xl">
+                A calm place to read Markdown on your Mac.
+            </p>
+            <div class="mt-9 flex flex-col items-center gap-3">
+                <Button href={downloadUrl} label="Download for Mac" />
+                <p class="font-sans text-sm text-ink-faint">Free to read · {minimumMacOS}</p>
+            </div>
+        </div>
+        <div class="mt-16 sm:mt-20">
+            <Shot name="read" alt="Stillread showing an essay in a folder of notes, with the folder in a sidebar on the left." eager />
+        </div>
+    </section>
+
+    <div class="mx-auto mt-24 max-w-5xl px-4 sm:mt-32 sm:px-8">
+        <div class="horizon"></div>
+    </div>
+
+    <div id="features" class="scroll-mt-8">
+        {/* 1. Calm reading */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Made for reading</h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>Markdown usually gets read inside tools built for writing: gutters, tabs, line numbers. Stillread sets it like a page instead, in a typeface drawn for long passages, at a line length that's easy on the eyes, with room on either side.</p>
+                    <p>Choose serif or sans, three line widths and your text size. Light and dark follow your Mac. When you want nothing else on screen, Focus Mode puts away everything but the words.</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <Shot name="focus" alt="Focus Mode: the same essay with the sidebar and toolbar hidden, only the page showing." />
+            </div>
+        </section>
+
+        {/* 2. Folders and the sidebar */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Your folders, as they are</h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>Open a folder and its notes appear in a quiet sidebar, in the same folders you keep them in. Filter to find a note, go back and forward like a browser, and jump through a long document with its table of contents.</p>
+                    <p>There's nothing to import and no library to manage. Your files stay exactly where they are, and Stillread remembers the folders you've opened recently.</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <Shot name="code" alt="A folder of notes in the sidebar, with a note containing a highlighted Python script." />
+            </div>
+        </section>
+
+        {/* 3. Quick Look */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Press Space on any Markdown file and see it properly</h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>Select a Markdown file in Finder and press <kbd class="rounded-md border border-rule bg-paper-deep px-2 py-0.5 font-sans text-[0.85em] text-ink shadow-[0_1px_0_var(--rule)]">Space</kbd>. Instead of raw text, Stillread's Quick Look preview shows the page the way the app does: the same typeface, tables, highlighted code and diagrams.</p>
+                    <p>Stillread started partly because of this. Quick Look previews come free with the app.</p>
+                </div>
+            </div>
+        </section>
+
+        {/* 4. GitHub-flavoured Markdown */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">All of GitHub-flavoured Markdown</h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>READMEs, docs and project plans look the way their authors meant, with the GitHub extras rendered calmly to match the page.</p>
+                </div>
+                <ul class="mt-6 flex flex-wrap gap-2 font-sans text-sm text-ink-soft">
+                    {gfm.map((item) => <li class="rounded-full px-3 py-1 ring-1 ring-rule">{item}</li>)}
+                </ul>
+            </div>
+            {/* Two windows, the second resting over the first's corner. */}
+            <div class="mt-12 sm:pb-[27%]">
+                <div class="relative">
+                    <Shot name="gfm" class="block sm:w-[78%]" sizes="(min-width: 1024px) 46rem, 100vw" alt="A project plan with a note, a Mermaid flowchart and the start of a table." />
+                    <Shot name="gfm2" class="mt-6 block sm:absolute sm:top-[80%] sm:right-0 sm:mt-0 sm:w-[56%]" sizes="(min-width: 1024px) 36rem, 100vw" alt="The same plan further down: a table, a task list, and tip and warning alerts." />
+                </div>
+            </div>
+        </section>
+
+        {/* 5. Live reload */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Follows along as files change</h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>When a note changes on disk, the page updates in place and keeps your spot. Write in your editor of choice and read the result beside it, or watch a folder fill as your tools work through a plan.</p>
+                    <p class="text-ink italic">A quiet place to read what you and your tools write.</p>
+                </div>
+            </div>
+        </section>
+
+        {/* 6. Editing */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
+                    Press <kbd class="font-sans text-[0.8em] font-medium">⌘E</kbd> to edit
+                </h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>When something needs fixing, press ⌘E and the page becomes its Markdown, in the same typeface and width, so you never lose your place. Headings and emphasis still look like themselves, and the Markdown marks fade into the background.</p>
+                    <p>Changes save on their own. Your file is written back exactly as it was apart from what you typed. And if another app changes the note while you're editing, Stillread asks which version to keep instead of overwriting either.</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <Shot name="edit" alt="Editing a recipe note: Markdown symbols are dimmed, headings are larger, and the frontmatter is set in a quiet monospaced font." />
+            </div>
+        </section>
+
+        {/* 7. Obsidian-style notes */}
+        <section class="mx-auto max-w-5xl px-4 pt-24 sm:px-8 sm:pt-32">
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">At home in an Obsidian vault</h2>
+                <div class="page-prose mt-5 text-ink-soft">
+                    <p>Keep notes in Obsidian? Open the vault as a folder. Wikilinks work, embedded images show in place, frontmatter folds away into a small Properties line, and callouts look like callouts. When you want to change something, there's a shortcut to open the note in Obsidian.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {/* Pricing */}
+    <section id="pricing" class="mx-auto max-w-5xl scroll-mt-8 px-4 pt-28 sm:px-8 sm:pt-36">
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Reading is free, always</h2>
+            <p class="page-prose mx-auto mt-4 text-ink-soft">Editing is a one-time unlock. There's no subscription.</p>
+        </div>
+
+        <div class="mx-auto mt-12 grid max-w-3xl gap-5 sm:grid-cols-2">
+            <div class="rounded-2xl p-7 ring-1 ring-rule">
+                <h3 class="font-sans text-sm font-medium tracking-wide text-ink-faint uppercase">Reading</h3>
+                <p class="mt-3 text-4xl font-semibold tracking-tight">Free</p>
+                <ul class="mt-6 space-y-2.5 font-sans text-[0.95rem] text-ink-soft">
+                    {free.map((item) => <li class="flex gap-2.5"><span class="text-water-deep" aria-hidden="true">—</span>{item}</li>)}
+                </ul>
+                <div class="mt-8"><Button href={downloadUrl} label="Download for Mac" variant="quiet" /></div>
+            </div>
+
+            <div class="rounded-2xl bg-paper-deep p-7 ring-1 ring-rule">
+                <h3 class="font-sans text-sm font-medium tracking-wide text-ink-faint uppercase">Editing</h3>
+                <p class="mt-3 text-4xl font-semibold tracking-tight">{price} <span class="font-sans text-base font-normal text-ink-faint">USD, once</span></p>
+                <ul class="mt-6 space-y-2.5 font-sans text-[0.95rem] text-ink-soft">
+                    {editing.map((item) => <li class="flex gap-2.5"><span class="text-water-deep" aria-hidden="true">—</span>{item}</li>)}
+                </ul>
+                <div class="mt-8"><Button href={checkoutUrl} label={`Buy Editing, ${price}`} /></div>
+            </div>
+        </div>
+
+        <p class="page-prose mx-auto mt-8 max-w-xl text-center text-base text-ink-soft">
+            There's no trial, so here's a promise instead: if it isn't right for you, email support and I'll refund you. <a href="/refunds">Refunds</a>
+        </p>
+    </section>
+
+    {/* Requirements */}
+    <section class="mx-auto max-w-5xl px-4 pt-24 pb-24 sm:px-8 sm:pt-28">
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-2xl font-semibold tracking-[-0.02em]">Requirements</h2>
+            <p class="mt-3 font-sans text-[0.95rem] text-ink-soft">{minimumMacOS}. Runs natively on Apple silicon and Intel Macs.</p>
+        </div>
+    </section>
+</Layout>

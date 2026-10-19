@@ -1,0 +1,60 @@
+---
+import Article from '../components/Article.astro';
+import SupportEmail from '../components/SupportEmail.astro';
+
+const questions = [
+    {
+        q: 'How do I open my notes?',
+        a: 'Choose <strong>File → Open…</strong> and pick a folder (or a single file). The folder appears in the sidebar. You can also drag a folder onto Stillread’s icon, and recent folders are listed when the app opens.',
+    },
+    {
+        q: 'How do I make Stillread open Markdown files from Finder?',
+        a: 'Select any <code>.md</code> file in Finder, choose <strong>File → Get Info</strong>, pick Stillread under <strong>Open with</strong>, then click <strong>Change All…</strong>.',
+    },
+    {
+        q: 'Quick Look still shows plain text.',
+        a: 'Open Stillread once after installing it so macOS registers its preview. If another Markdown previewer is installed, macOS may prefer it; you can turn previewers on or off in <strong>System Settings → General → Login Items &amp; Extensions → Quick Look</strong>.',
+    },
+    {
+        q: 'How do I change the typeface, width or text size?',
+        a: 'Open <strong>Stillread → Settings</strong>. Use <strong>⌘+</strong> and <strong>⌘−</strong> to change the text size as you read, and <strong>⇧⌘F</strong> for Focus Mode. Press <strong>Esc</strong> to leave it.',
+    },
+    {
+        q: 'How does editing save?',
+        a: 'Automatically, a moment after you stop typing, and again when you press <strong>⌘E</strong> to go back to reading. Undo works as usual. Stillread writes the file back exactly as it was apart from your changes, including line endings and frontmatter.',
+    },
+    {
+        q: 'Something else changed my note while I was editing.',
+        a: 'Stillread pauses saving and shows a small note: choose <strong>Keep Mine</strong> to keep your edits, or <strong>Load Theirs</strong> to switch to the version on disk. Load Theirs can be undone.',
+    },
+    {
+        q: 'How do I move Editing to a new Mac?',
+        a: 'Your licence works on up to 2 Macs. If you’ve replaced a Mac, or need more, email support with your licence key and we’ll reset it.',
+    },
+    {
+        q: 'Does Stillread work with my Obsidian vault?',
+        a: 'Yes. Open the vault folder. Wikilinks, image embeds, callouts and frontmatter are all supported, and <strong>⇧⌘O</strong> opens the current note in Obsidian.',
+    },
+];
+---
+
+<Article title="Support · Stillread" heading="How can I help?" eyebrow="Support" description="Help with Stillread: opening folders, Quick Look, settings, editing and licences.">
+    <div class="not-prose -mt-2 space-y-3">
+        {questions.map(({ q, a }) => (
+            <details class="group rounded-2xl ring-1 ring-rule open:bg-paper-deep">
+                <summary class="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl p-5 text-lg font-semibold tracking-tight [&::-webkit-details-marker]:hidden">
+                    {q}
+                    <svg viewBox="0 0 20 20" class="size-4 shrink-0 text-ink-faint transition-transform group-open:rotate-45 motion-reduce:transition-none" aria-hidden="true">
+                        <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                    </svg>
+                </summary>
+                <div class="-mt-3 px-5 pb-5 text-ink-soft">
+                    <p set:html={a} />
+                </div>
+            </details>
+        ))}
+    </div>
+
+    <h2>Still stuck?</h2>
+    <p>Email <SupportEmail /> and tell me what's happening. Your macOS version and Stillread version (in <strong>Stillread → About Stillread</strong>) help. I usually reply within a couple of business days.</p>
+</Article>

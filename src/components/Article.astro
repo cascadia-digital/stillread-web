@@ -1,0 +1,24 @@
+---
+// A text page (privacy, terms, refunds, support), set like a page in the app.
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+    title: string;
+    heading: string;
+    description: string;
+    eyebrow?: string;
+}
+
+const { title, heading, description, eyebrow } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <article class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-8 sm:pt-24">
+        {eyebrow && <p class="font-sans text-xs font-medium tracking-[0.14em] text-ink-faint uppercase">{eyebrow}</p>}
+        <h1 class="mt-3 text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">{heading}</h1>
+        <slot name="summary" />
+        <div class="page-prose mt-10">
+            <slot />
+        </div>
+    </article>
+</Layout>

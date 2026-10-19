@@ -1,0 +1,48 @@
+---
+// The support address, kept out of the HTML so scrapers can't harvest it.
+// It's stored reversed and split; CSS displays it the right way round, and the
+// mailto: link is only built when someone hovers, focuses or taps it.
+// Without JavaScript the link falls back to the support page.
+import { supportEmail } from '../config';
+
+interface Props {
+    class?: string;
+}
+
+const { class: className } = Astro.props;
+// This runs at build time only; the address itself never reaches the page.
+const reverse = (text: string) => [...text].reverse().join('');
+const [user, domain] = supportEmail.split('@').map(reverse);
+const encoded = btoa(reverse(supportEmail));
+---
+
+<a href="/support" rel="nofollow" data-email={encoded} class:list={['support-email', className]} aria-label="Email Stillread support">
+    <span class="support-email-text" data-user={user} data-domain={domain} aria-hidden="true"></span>
+</a>
+
+<style>
+    .support-email-text {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+    }
+
+    .support-email-text::before {
+        content: attr(data-domain) "\0040" attr(data-user);
+    }
+</style>
+
+<script>
+    function reveal(link: HTMLAnchorElement) {
+        if (link.dataset.revealed) return;
+        const reversed = atob(link.dataset.email ?? '');
+        link.href = 'mailto:' + [...reversed].reverse().join('');
+        link.dataset.revealed = 'true';
+    }
+
+    document.querySelectorAll<HTMLAnchorElement>('a[data-email]').forEach((link) => {
+        for (const event of ['pointerenter', 'focus', 'touchstart']) {
+            link.addEventListener(event, () => reveal(link), { once: true, passive: true });
+        }
+        link.addEventListener('click', () => reveal(link));
+    });
+</script>

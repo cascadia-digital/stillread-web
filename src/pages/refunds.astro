@@ -1,0 +1,21 @@
+---
+import Article from '../components/Article.astro';
+import Summary from '../components/Summary.astro';
+import SupportEmail from '../components/SupportEmail.astro';
+---
+
+<Article title="Refund Policy · Stillread" heading="Refunds" eyebrow="Effective October 19, 2026" description="If Stillread's Editing unlock isn't right for you, email support and you'll get a refund.">
+    <Summary slot="summary">
+        <p class="font-semibold">If it isn't right for you, email support and I'll refund you.</p>
+        <p class="mt-2 text-ink-soft">There's no free trial of Editing, so this is the promise instead.</p>
+    </Summary>
+
+    <h2>How to ask</h2>
+    <p>Email <SupportEmail /> from the address you used to buy, or include your order number or licence key. You don't need to give a reason, though it helps to know what didn't work for you.</p>
+
+    <h2>What happens next</h2>
+    <p>Stillread is sold through <a href="https://polar.sh">Polar</a>, the merchant of record, so the refund is issued through Polar to your original payment method. It usually appears within 5 to 10 business days, depending on your bank. Once refunded, the licence key is turned off and Editing locks again. Reading stays free.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy ever changes, for example to add a time limit, we'll update this page first. Purchases made before a change keep the policy that applied when you bought.</p>
+</Article>

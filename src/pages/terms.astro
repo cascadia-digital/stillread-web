@@ -1,0 +1,48 @@
+---
+import Article from '../components/Article.astro';
+import Summary from '../components/Summary.astro';
+import SupportEmail from '../components/SupportEmail.astro';
+import { price } from '../config';
+---
+
+<Article title="Terms of Use · Stillread" heading="Terms of Use" eyebrow="Effective October 19, 2026" description="The terms for using Stillread and buying the Editing unlock.">
+    <Summary slot="summary">
+        <p class="font-semibold">The short version: reading is free, Editing is a one-time purchase for up to 2 Macs, and your notes are always yours.</p>
+        <p class="mt-2 text-ink-soft">Buy through Polar, use it on your own Macs, and if it isn't right for you, ask for a refund.</p>
+    </Summary>
+
+    <h2>Who we are</h2>
+    <p>Stillread is made by Cascadia Digital Inc. ("we", "us"), a company in British Columbia, Canada. By downloading or using Stillread, you agree to these terms.</p>
+
+    <h2>Using Stillread</h2>
+    <p>Stillread's reading features, including folders, live reload and the Quick Look preview, are free to use on as many Macs as you like, for personal or work use.</p>
+
+    <h2>The Editing unlock</h2>
+    <p>Editing is a one-time purchase of {price} (USD, plus any tax Polar applies where you live). It gives you a personal licence key that unlocks Editing on up to 2 Macs that you use. It includes free updates for every 1.x version of Stillread. A future major version may be a separate purchase; if it is, the version you bought keeps working.</p>
+    <p>Please don't share your licence key publicly or with people outside your household. If you need it on more Macs, or want to move it to a new Mac, email us and we'll sort it out.</p>
+
+    <h2>Payment</h2>
+    <p>Purchases are processed by <a href="https://polar.sh">Polar</a>, the merchant of record and seller of Stillread. Polar handles payment, tax and receipts, and its <a href="https://polar.sh/legal/terms">terms</a> also apply to your purchase.</p>
+
+    <h2>Refunds</h2>
+    <p>If Editing isn't right for you, email us and we'll refund you. See the <a href="/refunds">refund policy</a> for details.</p>
+
+    <h2>Your notes</h2>
+    <p>Your files are yours. Stillread only reads and writes the files you open, on your Mac. We claim no rights to anything you read or write with it.</p>
+    <p>Stillread is careful to save files exactly as they were apart from your edits, but no software is perfect. Please keep backups of notes that matter to you, as you would with any app.</p>
+
+    <h2>The app itself</h2>
+    <p>Stillread is licensed to you, not sold. You may not resell it, or reverse engineer it except where the law allows. Stillread includes open-source components, used under their own licences.</p>
+
+    <h2>No warranty</h2>
+    <p>Stillread is provided "as is". To the extent the law allows, we make no warranties about it, and we're not liable for indirect or consequential losses, such as lost data or lost profits, from using it. If we are found liable, our total liability is limited to the amount you paid for Stillread. Some places don't allow these limits, so they may not apply to you.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms. If we do, we'll change the effective date above, and the new terms apply from then on. They won't take away anything you've already paid for.</p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of British Columbia and the federal laws of Canada that apply there.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms? Email <SupportEmail />.</p>
+</Article>

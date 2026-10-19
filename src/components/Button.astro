@@ -1,0 +1,24 @@
+---
+// The main call to action. With no URL it shows a quiet "Coming soon" instead of a link.
+interface Props {
+    href: string;
+    label: string;
+    soon?: string;
+    variant?: 'primary' | 'quiet';
+}
+
+const { href, label, soon = 'Coming soon', variant = 'primary' } = Astro.props;
+const base = 'focus-ring inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[0.95rem] font-medium tracking-tight transition-colors';
+const styles = {
+    primary: 'bg-ink text-paper hover:bg-ink/85',
+    quiet: 'text-ink ring-1 ring-rule hover:bg-paper-deep',
+};
+---
+
+{href ? (
+    <a href={href} class:list={[base, styles[variant]]}>{label}</a>
+) : (
+    <span class:list={[base, 'cursor-default text-ink-soft ring-1 ring-rule']} aria-label={`${label}: ${soon.toLowerCase()}`}>
+        {soon}
+    </span>
+)}

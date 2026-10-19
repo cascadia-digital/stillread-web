@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stillread.app/sitemap.xml

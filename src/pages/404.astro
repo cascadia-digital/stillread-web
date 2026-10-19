@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page not found · Stillread" description="This page isn't here." noindex>
+    <section class="mx-auto max-w-2xl px-4 pt-24 pb-32 text-center sm:px-8 sm:pt-32">
+        <p class="font-sans text-xs font-medium tracking-[0.14em] text-ink-faint uppercase">Page not found</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-[-0.025em] sm:text-5xl">Nothing on this page</h1>
+        <p class="page-prose mx-auto mt-5 text-ink-soft">Just still water. The page you were looking for may have moved.</p>
+
+        {/* The icon's paragraph and its fading reflection. */}
+        <svg viewBox="0 0 240 120" class="mx-auto mt-12 w-56" aria-hidden="true">
+            <g fill="var(--ink-faint)">
+                <rect x="40" y="22" width="150" height="7" rx="3.5" />
+                <rect x="40" y="38" width="160" height="7" rx="3.5" />
+                <rect x="40" y="54" width="110" height="7" rx="3.5" />
+            </g>
+            <line x1="10" x2="230" y1="72" y2="72" stroke="var(--water-deep)" stroke-width="1" />
+            <g fill="var(--water-deep)">
+                <rect x="40" y="82" width="110" height="5" rx="2.5" opacity="0.4" />
+                <rect x="44" y="94" width="150" height="4" rx="2" opacity="0.22" />
+                <rect x="38" y="105" width="140" height="3" rx="1.5" opacity="0.1" />
+            </g>
+        </svg>
+
+        <div class="mt-12">
+            <a href="/" class="focus-ring inline-flex rounded-full bg-ink px-6 py-3 font-sans text-[0.95rem] font-medium text-paper hover:bg-ink/85">Back to Stillread</a>
+        </div>
+    </section>
+</Layout>

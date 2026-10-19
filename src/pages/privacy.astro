@@ -1,0 +1,44 @@
+---
+import Article from '../components/Article.astro';
+import Summary from '../components/Summary.astro';
+import SupportEmail from '../components/SupportEmail.astro';
+---
+
+<Article title="Privacy Policy · Stillread" heading="Privacy Policy" eyebrow="Effective October 19, 2026" description="Stillread doesn't collect your data. Your notes stay on your Mac, and the app has no analytics or tracking.">
+    <Summary slot="summary">
+        <p class="font-semibold">The short version: Stillread doesn't collect any of your data.</p>
+        <p class="mt-2 text-ink-soft">Your notes are read on your Mac and never leave it. There are no accounts, no analytics, no ads and no tracking in the app. The only time Stillread contacts anyone on your behalf is to check a licence key with Polar, our payment provider, and to check for updates.</p>
+    </Summary>
+
+    <h2>Who we are</h2>
+    <p>Stillread is made by Cascadia Digital Inc. ("we", "us"), in British Columbia, Canada. This policy explains what information the Stillread Mac app, its Quick Look preview and this website use, and how.</p>
+
+    <h2>Your notes and files</h2>
+    <p>Stillread opens the files and folders you choose and shows them on your Mac. When you edit a note, it's saved back to the same file on your Mac. Your files are never uploaded, copied to us, or shared with anyone. The Quick Look preview works the same way, entirely on your Mac.</p>
+    <p>The app keeps a few settings on your Mac, such as your typeface, text size and recently opened folders. You can clear recent folders from the File menu, and deleting Stillread's settings removes them.</p>
+
+    <h2>Images from the web</h2>
+    <p>If a note includes an image hosted on a website, Stillread loads that image from the website, the same way a browser would. That website may see your IP address. Everything else on the page, including diagrams and code highlighting, is drawn on your Mac.</p>
+
+    <h2>Buying and activating Editing</h2>
+    <p>Editing is sold through <a href="https://polar.sh">Polar</a>, which acts as the merchant of record. When you buy, Polar collects your name, email address and payment details to process the payment and send your licence key. We receive your name, email address and order details from Polar so we can help with support and refunds. We never see your full card details. Polar handles this information under <a href="https://polar.sh/legal/privacy">its privacy policy</a>.</p>
+    <p>When you enter your licence key, Stillread sends the key and an anonymous identifier for your Mac to Polar to confirm the key and keep count of your activations (up to 2 Macs). Nothing about your notes is sent.</p>
+
+    <h2>Updates</h2>
+    <p>Stillread checks for updates by downloading a small file from stillread.app. Like any web request, this includes your IP address, which our host may keep in short-lived server logs. The update check doesn't send any information about your Mac or your notes.</p>
+
+    <h2>This website</h2>
+    <p>This website (stillread.app) is hosted by Netlify, which keeps standard server logs. We may use <a href="https://usefathom.com/privacy">Fathom Analytics</a> to count visits. Fathom doesn't use cookies, doesn't collect personal information, and doesn't track you across other websites. We only see totals, like how many people visited a page.</p>
+
+    <h2>Email</h2>
+    <p>If you email us, we use your message and address only to reply and help you. We don't add you to a mailing list.</p>
+
+    <h2>Children</h2>
+    <p>Stillread doesn't collect personal information from anyone, including children under 13.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, we'll update this page and the effective date above. If Stillread ever starts collecting data, we'll update this policy before that change ships.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy? Email <SupportEmail />.</p>
+</Article>
