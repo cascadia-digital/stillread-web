@@ -23,7 +23,7 @@
     --paper-deep: #f1ebdf;
     --ink: #2b2925;
     --ink-soft: #5b574f;
-    --ink-faint: #8a8273;
+    --ink-faint: #6f6859;   /* 5.1:1 on paper, AA for small text */
     --rule: #e4ddd0;
     --water: #bccdd5;
     --water-deep: #8aa3b0;
@@ -37,7 +37,7 @@
         --paper-deep: #262629;
         --ink: #e6e3dd;
         --ink-soft: #b3afa7;
-        --ink-faint: #85827b;
+        --ink-faint: #9a968e;   /* 5.6:1 on paper */
         --rule: #34333a;
         --water: #3a4c57;
         --water-deep: #5f7a88;
@@ -109,17 +109,4 @@ html {
 .focus-ring {
     outline-offset: 4px;
     &:focus-visible { outline: 2px solid var(--water-ink); }
-}
-
-.fade-in {
-    animation: fade-in 0.9s ease-out both;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .fade-in { animation: none; }
 }

@@ -17,6 +17,15 @@ Everything that changes at launch lives in `src/config.ts`:
 - `supportEmail`: shown (lightly obfuscated) on every page.
 - `fathomSite`: Fathom site ID. Empty keeps analytics off.
 
+## Deploy and DNS
+
+- Hosting: Netlify, building from this repo (settings come from `netlify.toml`).
+- Domain: registered at Hover; DNS is on Cloudflare.
+- Cloudflare records, all **DNS only (grey cloud), never proxied**, so Netlify can issue and renew HTTPS:
+  - `A` · `stillread.app` → `75.2.60.5` (Netlify's load balancer)
+  - `CNAME` · `www` → `<site-name>.netlify.app`
+- In Netlify, add both `stillread.app` and `www.stillread.app` under Domain management, make `stillread.app` primary, then verify DNS under HTTPS.
+
 ## Later
 
 - `/changelog`: add `src/pages/changelog.astro` and list it in `src/pages/sitemap.xml.ts`.

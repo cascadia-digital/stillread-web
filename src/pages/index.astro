@@ -28,7 +28,7 @@ const editing = [
 >
     {/* Hero */}
     <section class="mx-auto max-w-5xl px-4 pt-16 text-center sm:px-8 sm:pt-24">
-        <div class="fade-in">
+        <div>
             <Image src={icon} alt="" width={160} height={160} class="mx-auto size-28 sm:size-32" loading="eager" />
             <h1 class="mt-6 text-5xl font-semibold tracking-[-0.025em] sm:text-6xl">Stillread</h1>
             <p class="mx-auto mt-5 max-w-xl text-xl leading-relaxed text-ink-soft sm:text-2xl">
@@ -85,6 +85,16 @@ const editing = [
                     <p>Select a Markdown file in Finder and press <kbd class="rounded-md border border-rule bg-paper-deep px-2 py-0.5 font-sans text-[0.85em] text-ink shadow-[0_1px_0_var(--rule)]">Space</kbd>. Instead of raw text, Stillread's Quick Look preview shows the page the way the app does: the same typeface, tables, highlighted code and diagrams.</p>
                     <p>Stillread started partly because of this. Quick Look previews come free with the app.</p>
                 </div>
+            </div>
+            <div class="mt-12 grid items-end gap-8 sm:grid-cols-[2fr_3fr] sm:gap-10">
+                <figure>
+                    <Shot name="qlraw" sizes="(min-width: 1024px) 24rem, 100vw" alt="Finder's Quick Look showing the note as raw Markdown text: pound signs, pipes and asterisks." />
+                    <figcaption class="mt-3 text-center font-sans text-sm text-ink-faint">Without Stillread</figcaption>
+                </figure>
+                <figure>
+                    <Shot name="ql" sizes="(min-width: 1024px) 36rem, 100vw" alt="Finder's Quick Look with Stillread: the same note set as a page, with a route table, a checked task list and a tip." />
+                    <figcaption class="mt-3 text-center font-sans text-sm text-ink-faint">With Stillread</figcaption>
+                </figure>
             </div>
         </section>
 
