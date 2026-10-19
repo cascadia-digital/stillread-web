@@ -10,7 +10,7 @@ export const checkoutUrl = '';
 export const supportEmail = 'support@cascadia.digital';
 
 /** Fathom site ID. Empty keeps analytics off. */
-export const fathomSite = '';
+export const fathomSite = 'AWEUOVTD';
 
 export const price = '$9.99';
 export const minimumMacOS = 'macOS 14 Sonoma or later';
