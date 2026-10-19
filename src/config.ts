@@ -7,7 +7,7 @@ export const downloadUrl = '';
 export const checkoutUrl = '';
 
 /** Where support email goes. */
-export const supportEmail = 'support@cascadia.digital';
+export const supportEmail = 'support@stillread.app';
 
 /** Fathom site ID. Empty keeps analytics off. */
 export const fathomSite = 'AWEUOVTD';
