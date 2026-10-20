@@ -5,9 +5,11 @@ interface Props {
     label: string;
     soon?: string;
     variant?: 'primary' | 'quiet';
+    /** An icon before the label (the link only, not "Coming soon"). */
+    icon?: 'download';
 }
 
-const { href, label, soon = 'Coming soon', variant = 'primary' } = Astro.props;
+const { href, label, soon = 'Coming soon', variant = 'primary', icon } = Astro.props;
 const base = 'focus-ring inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[0.95rem] font-medium tracking-tight transition-colors';
 const styles = {
     primary: 'bg-ink text-paper hover:bg-ink/85',
@@ -16,7 +18,14 @@ const styles = {
 ---
 
 {href ? (
-    <a href={href} class:list={[base, styles[variant]]}>{label}</a>
+    <a href={href} class:list={[base, styles[variant]]}>
+        {icon === 'download' && (
+            <svg class="size-[1.05em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 4v12M6 11l6 6 6-6M5 20h14" />
+            </svg>
+        )}
+        {label}
+    </a>
 ) : (
     <span class:list={[base, 'cursor-default text-ink-soft ring-1 ring-rule']} aria-label={`${label}: ${soon.toLowerCase()}`}>
         {soon}

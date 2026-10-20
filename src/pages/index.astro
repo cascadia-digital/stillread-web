@@ -35,7 +35,7 @@ const editing = [
                 A calm place to read Markdown on your Mac.
             </p>
             <div class="mt-9 flex flex-col items-center gap-3">
-                <Button href={downloadUrl} label="Download for Mac" />
+                <Button href={downloadUrl} label="Download for Mac" icon="download" />
                 <p class="font-sans text-sm text-ink-faint">Free to read · {minimumMacOS}</p>
             </div>
         </div>
@@ -170,7 +170,7 @@ const editing = [
                 <ul class="mt-6 space-y-2.5 font-sans text-[0.95rem] text-ink-soft">
                     {free.map((item) => <li class="flex gap-2.5"><span class="text-water-deep" aria-hidden="true">—</span>{item}</li>)}
                 </ul>
-                <div class="mt-8"><Button href={downloadUrl} label="Download for Mac" variant="quiet" /></div>
+                <div class="mt-8"><Button href={downloadUrl} label="Download for Mac" variant="quiet" icon="download" /></div>
             </div>
 
             <div class="rounded-2xl bg-paper-deep p-7 ring-1 ring-rule">
