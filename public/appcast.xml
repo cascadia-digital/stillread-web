@@ -3,6 +3,21 @@
     <channel>
         <title>Stillread</title>
         <item>
+            <title>1.0.3</title>
+            <pubDate>Tue, 20 Oct 2026 16:02:56 -0700</pubDate>
+            <link>https://stillread.app</link>
+            <sparkle:version>25</sparkle:version>
+            <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>Better handling of images.</p>
+<ul>
+<li>Images that can&#x27;t be found now show their description in a quiet caption instead of an empty box.</li>
+<li>Images with site-root paths like /images/photo.jpg now load from your project&#x27;s public folder (Astro, Laravel, Next and similar).</li>
+</ul>
+]]></description>
+            <enclosure url="https://downloads.stillread.app/Stillread-1.0.3.dmg" length="5654846" type="application/octet-stream" sparkle:edSignature="ZSaejIUb7CUMxhdTRHHM3GrNGLvIEIlARZZ7c1u4rlVYA0QmN/g3xY61fRIumT9ehOzGXfxbqxG+g8O22z5lDw=="/>
+        </item>
+        <item>
             <title>1.0.2</title>
             <pubDate>Tue, 20 Oct 2026 15:29:23 -0700</pubDate>
             <link>https://stillread.app</link>
@@ -29,32 +44,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://downloads.stillread.app/Stillread-1.0.1.dmg" length="6718504" type="application/octet-stream" sparkle:edSignature="va+kI6Ewg72oR33TYus8uwtlz2YyYEleTIKWRibbyHClp61qakFJnfuPvbZZTsT2Oz6uj/1T5EflAPUcFAUHAQ=="/>
-        </item>
-        <item>
-            <title>1.0.0</title>
-            <pubDate>Tue, 20 Oct 2026 09:47:44 -0700</pubDate>
-            <link>https://stillread.app</link>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p>The first release of Stillread: a calm place to read Markdown on your Mac.</p>
-<h3>Reading (free)</h3>
-<ul>
-<li>Open a folder and read its notes in a quiet sidebar, set like a page in a typeface made for reading</li>
-<li>Serif or sans, three line widths, any text size, light and dark, and Focus Mode</li>
-<li>GitHub-flavoured Markdown: tables, task lists, footnotes, alerts, Mermaid diagrams and highlighted code</li>
-<li>Pages update as files change on disk, and keep your place</li>
-<li>Quick Look previews in Finder: press Space on any Markdown file</li>
-<li>At home in an Obsidian vault: wikilinks, image embeds, callouts and frontmatter</li>
-</ul>
-<h3>Editing (one-time unlock)</h3>
-<ul>
-<li>Press <strong>⌘E</strong> to edit a note in place, with Markdown marks softly dimmed</li>
-<li>Saves on its own, writing the file back exactly as it was apart from your changes</li>
-<li>If another app changes the note while you edit, Stillread asks which version to keep</li>
-</ul>
-]]></description>
-            <enclosure url="https://downloads.stillread.app/Stillread-1.0.0.dmg" length="5642994" type="application/octet-stream" sparkle:edSignature="lCVamjCWAkIWswHNraKfBmT+TRYk29JOlQe2nKk51cRvz3obbvwu3viASYpvQWO2bblOdwDjnMzpyHJtzUwmBw=="/>
         </item>
     </channel>
 </rss>
