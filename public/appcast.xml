@@ -3,6 +3,20 @@
     <channel>
         <title>Stillread</title>
         <item>
+            <title>1.0.2</title>
+            <pubDate>Tue, 20 Oct 2026 15:29:23 -0700</pubDate>
+            <link>https://stillread.app</link>
+            <sparkle:version>21</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>A small fix for editing.</p>
+<ul>
+<li>In edit mode, the text cursor now appears exactly where you click. Before, it could sit a little to one side until you resized the window.</li>
+</ul>
+]]></description>
+            <enclosure url="https://downloads.stillread.app/Stillread-1.0.2.dmg" length="5686910" type="application/octet-stream" sparkle:edSignature="VrxM0ikCeWv5Gw3j58YP6OM3thNLQy++WUoQ4PvnoQWI4eLJ6TDICAr+6vL4HHIw7FHOSEa9p6NX3XAowjhiAQ=="/>
+        </item>
+        <item>
             <title>1.0.1</title>
             <pubDate>Tue, 20 Oct 2026 12:03:29 -0700</pubDate>
             <link>https://stillread.app</link>
