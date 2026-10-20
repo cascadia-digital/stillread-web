@@ -1,7 +1,7 @@
 // The site's switches. Each one is a single line to change when it's ready.
 
 /** The launch switch. While false, Download and Buy both show "Coming soon". Flip it to go live. */
-export const launched = false;
+export const launched = true;
 
 /** Direct download of the notarized app. */
 const downloadLink = 'https://downloads.stillread.app/Stillread.dmg';
