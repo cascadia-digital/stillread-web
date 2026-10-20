@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Stillread</title>
+        <item>
+            <title>1.0.1</title>
+            <pubDate>Tue, 20 Oct 2026 12:03:29 -0700</pubDate>
+            <link>https://stillread.app</link>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>A small update to how Stillread talks about licence keys.</p>
+<ul>
+<li>If a licence key can&#x27;t be activated because of a problem on our side, Stillread now says so plainly and points you to support, instead of suggesting the key was refunded or revoked</li>
+</ul>
+]]></description>
+            <enclosure url="https://downloads.stillread.app/Stillread-1.0.1.dmg" length="6718504" type="application/octet-stream" sparkle:edSignature="va+kI6Ewg72oR33TYus8uwtlz2YyYEleTIKWRibbyHClp61qakFJnfuPvbZZTsT2Oz6uj/1T5EflAPUcFAUHAQ=="/>
+        </item>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Tue, 20 Oct 2026 09:47:44 -0700</pubDate>
+            <link>https://stillread.app</link>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>The first release of Stillread: a calm place to read Markdown on your Mac.</p>
+<h3>Reading (free)</h3>
+<ul>
+<li>Open a folder and read its notes in a quiet sidebar, set like a page in a typeface made for reading</li>
+<li>Serif or sans, three line widths, any text size, light and dark, and Focus Mode</li>
+<li>GitHub-flavoured Markdown: tables, task lists, footnotes, alerts, Mermaid diagrams and highlighted code</li>
+<li>Pages update as files change on disk, and keep your place</li>
+<li>Quick Look previews in Finder: press Space on any Markdown file</li>
+<li>At home in an Obsidian vault: wikilinks, image embeds, callouts and frontmatter</li>
+</ul>
+<h3>Editing (one-time unlock)</h3>
+<ul>
+<li>Press <strong>⌘E</strong> to edit a note in place, with Markdown marks softly dimmed</li>
+<li>Saves on its own, writing the file back exactly as it was apart from your changes</li>
+<li>If another app changes the note while you edit, Stillread asks which version to keep</li>
+</ul>
+]]></description>
+            <enclosure url="https://downloads.stillread.app/Stillread-1.0.0.dmg" length="5642994" type="application/octet-stream" sparkle:edSignature="lCVamjCWAkIWswHNraKfBmT+TRYk29JOlQe2nKk51cRvz3obbvwu3viASYpvQWO2bblOdwDjnMzpyHJtzUwmBw=="/>
+        </item>
+    </channel>
+</rss>
