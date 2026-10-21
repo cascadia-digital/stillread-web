@@ -7,9 +7,11 @@ interface Props {
     variant?: 'primary' | 'quiet';
     /** An icon before the label (the link only, not "Coming soon"). */
     icon?: 'download';
+    /** A Fathom event name sent when the link is clicked (see Layout.astro). */
+    event?: string;
 }
 
-const { href, label, soon = 'Coming soon', variant = 'primary', icon } = Astro.props;
+const { href, label, soon = 'Coming soon', variant = 'primary', icon, event } = Astro.props;
 const base = 'focus-ring inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-sans text-[0.95rem] font-medium tracking-tight transition-colors';
 const styles = {
     primary: 'bg-ink text-paper hover:bg-ink/85',
@@ -18,7 +20,7 @@ const styles = {
 ---
 
 {href ? (
-    <a href={href} class:list={[base, styles[variant]]}>
+    <a href={href} class:list={[base, styles[variant]]} data-fathom-event={event}>
         {icon === 'download' && (
             <svg class="size-[1.05em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 4v12M6 11l6 6 6-6M5 20h14" />

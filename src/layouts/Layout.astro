@@ -53,6 +53,21 @@ const nav = [
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {fathomSite && <script src="https://cdn.usefathom.com/script.js" data-site={fathomSite} defer></script>}
+        {fathomSite && (
+            <script is:inline>
+                // Count clicks on links marked data-fathom-event. It never stops or delays the link,
+                // and does nothing when Fathom isn't loaded (blocked, or analytics off).
+                document.addEventListener('click', function (e) {
+                    var link = e.target instanceof Element && e.target.closest('[data-fathom-event]');
+                    if (!link) return;
+                    try {
+                        if (window.fathom && typeof window.fathom.trackEvent === 'function') {
+                            window.fathom.trackEvent(link.getAttribute('data-fathom-event'));
+                        }
+                    } catch (_) {}
+                });
+            </script>
+        )}
     </head>
     <body class="min-h-screen bg-paper font-serif text-ink antialiased">
         <a href="#main" class="focus-ring sr-only rounded bg-paper px-3 py-2 font-sans text-sm focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50">Skip to content</a>
