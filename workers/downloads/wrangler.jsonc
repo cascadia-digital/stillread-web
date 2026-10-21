@@ -1,0 +1,18 @@
+// Download counter for downloads.stillread.app. See README.md.
+// The account ID comes from `wrangler login` (or CLOUDFLARE_ACCOUNT_ID), so nothing secret lives here.
+{
+    "name": "stillread-downloads",
+    "main": "src/index.js",
+    "compatibility_date": "2026-10-01",
+    "workers_dev": false,
+    "routes": [
+        { "pattern": "downloads.stillread.app/*", "zone_name": "stillread.app" }
+    ],
+    "r2_buckets": [
+        { "binding": "BUCKET", "bucket_name": "stillread-downloads" }
+    ],
+    "analytics_engine_datasets": [
+        { "binding": "DOWNLOADS", "dataset": "stillread_downloads" }
+    ],
+    "observability": { "enabled": false }
+}

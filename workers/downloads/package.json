@@ -1,0 +1,13 @@
+{
+  "name": "stillread-downloads-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "test": "node --test test/*.test.js",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
+  }
+}
