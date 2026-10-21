@@ -13,19 +13,15 @@ npm run build    # static site in dist/
 Everything that changes at launch lives in `src/config.ts`:
 
 - `launched`: the launch switch. While `false`, Download and Buy both show "Coming soon"; set it to `true` to go live.
-- `downloadLink` / `checkoutLink`: the R2 download (`https://downloads.stillread.app/Stillread.dmg`) and the Polar checkout.
-- `customerPortalUrl`: Polar's customer portal (`polar.sh/cascadia-digital-inc/portal`).
+- `downloadLink`: where the Download buttons point (the notarized DMG).
+- `checkoutLink`: the Polar checkout for the Editing unlock.
+- `customerPortalUrl`: Polar's customer portal, where buyers find their key and manage their Macs.
 - `supportEmail`: shown (lightly obfuscated) on every page.
 - `fathomSite`: Fathom site ID. Empty keeps analytics off.
 
-## Deploy and DNS
+## Hosting
 
-- Hosting: Netlify, building from this repo (settings come from `netlify.toml`).
-- Domain: registered at Hover; DNS is on Cloudflare.
-- Cloudflare records, all **DNS only (grey cloud), never proxied**, so Netlify can issue and renew HTTPS:
-  - `A` · `stillread.app` → `75.2.60.5` (Netlify's load balancer)
-  - `CNAME` · `www` → `<site-name>.netlify.app`
-- In Netlify, add both `stillread.app` and `www.stillread.app` under Domain management, make `stillread.app` primary, then verify DNS under HTTPS.
+Hosted on Netlify, building from this repo (settings in `netlify.toml`).
 
 ## Later
 
