@@ -21,24 +21,29 @@ function bucket() {
         },
     };
 }
-async function run(path, { method = 'GET', headers = {} } = {}) {
-    const points = [];
-    const env = { BUCKET: bucket(), DOWNLOADS: { writeDataPoint: p => points.push(p) } };
-    const res = await worker.fetch(new Request('https://downloads.stillread.app' + path, { method, headers }), env, {});
-    return { res, points };
+function db(points, fail = false) {
+    return { prepare: sql => ({ bind: (...args) => ({ run: async () => { if (fail) throw new Error('down'); points.push({ sql, args }); } }) }) };
 }
+async function run(path, { method = 'GET', headers = {} } = {}) {
+    const points = [], waits = [];
+    const env = { BUCKET: bucket(), DB: db(points) };
+    const res = await worker.fetch(new Request('https://downloads.stillread.app' + path, { method, headers }), env, { waitUntil: p => waits.push(p) });
+    await Promise.all(waits);
+    return { res, points: points.map(p => p.args) };
+}
+const today = new Date().toISOString().slice(0, 10);
 const safari = { 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/18.0 Safari/605.1.15' };
 
 test('a browser download counts once, with no visitor details', async () => {
     const { res, points } = await run('/Stillread.dmg', { headers: safari });
     assert.equal(res.status, 200);
     assert.equal(res.headers.get('content-length'), String(SIZE));
-    assert.deepEqual(points, [{ indexes: ['Stillread.dmg'], blobs: ['Stillread.dmg', 'download'], doubles: [1] }]);
+    assert.deepEqual(points, [[today, 'Stillread.dmg', 'download']]);
 });
 
 test('a Sparkle update is labelled as an update', async () => {
     const { points } = await run('/Stillread-1.0.3.dmg', { headers: { 'user-agent': 'Stillread/1.0.2 Sparkle/2.8.0' } });
-    assert.deepEqual(points[0].blobs, ['Stillread-1.0.3.dmg', 'update']);
+    assert.deepEqual(points[0], [today, 'Stillread-1.0.3.dmg', 'update']);
 });
 
 test('a ranged download counts only for the first chunk', async () => {
@@ -68,9 +73,12 @@ test('HEAD, 304, missing files, bots and other files are not counted', async () 
 });
 
 test('a failing counter never breaks the download', async () => {
-    const env = { BUCKET: bucket(), DOWNLOADS: { writeDataPoint() { throw new Error('down'); } } };
-    const res = await worker.fetch(new Request('https://downloads.stillread.app/Stillread.dmg', { headers: safari }), env, {});
-    assert.equal(res.status, 200);
+    for (const DB of [db([], true), undefined]) {
+        const waits = [];
+        const res = await worker.fetch(new Request('https://downloads.stillread.app/Stillread.dmg', { headers: safari }), { BUCKET: bucket(), DB }, { waitUntil: p => waits.push(p) });
+        assert.equal(res.status, 200);
+        await Promise.all(waits);                      // and nothing is left rejected
+    }
 });
 
 test('POST is refused', async () => {

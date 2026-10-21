@@ -11,8 +11,8 @@
     "r2_buckets": [
         { "binding": "BUCKET", "bucket_name": "stillread-downloads" }
     ],
-    "analytics_engine_datasets": [
-        { "binding": "DOWNLOADS", "dataset": "stillread_downloads" }
+    "d1_databases": [
+        { "binding": "DB", "database_name": "stillread-downloads", "database_id": "2aa15006-75a7-4bc3-8d65-41f61e603825", "migrations_dir": "migrations" }
     ],
     "observability": { "enabled": false }
 }

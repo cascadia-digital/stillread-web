@@ -1,8 +1,8 @@
 // Serves downloads.stillread.app from R2 (as the bucket's own domain did) and counts
 // each .dmg download.
 //
-// A count is one data point in Workers Analytics Engine: the file name, and
-// whether it came from a browser or from Sparkle (the in-app updater).
+// Counts live in a D1 table, one row per day, file and source (a browser, or
+// Sparkle, the in-app updater), each holding a running total.
 // Nothing about the visitor is stored: no IP, no user agent, no location.
 //
 // Not counted: HEAD requests, conditional requests answered with 304,
@@ -24,11 +24,8 @@ export default {
 
         const response = await serve(request, env.BUCKET, key);
         if (key.endsWith('.dmg') && shouldCount(request, response)) {
-            try {
-                env.DOWNLOADS.writeDataPoint({ indexes: [key], blobs: [key, source(request)], doubles: [1] });
-            } catch (_) {
-                // Counting must never break a download.
-            }
+            // Counted in the background, so it never slows the download, and a failure never breaks it.
+            ctx.waitUntil(count(env.DB, key, source(request)).catch(() => {}));
         }
         return response;
     },
@@ -74,6 +71,14 @@ function shouldCount(request, response) {
         return /^bytes=0-/.test(request.headers.get('range') || '');
     }
     return response.status === 200;
+}
+
+async function count(db, file, src) {
+    const day = new Date().toISOString().slice(0, 10);
+    return db.prepare(
+        'INSERT INTO downloads (day, file, source, count) VALUES (?1, ?2, ?3, 1) ' +
+        'ON CONFLICT (day, file, source) DO UPDATE SET count = count + 1'
+    ).bind(day, file, src).run();
 }
 
 function source(request) {

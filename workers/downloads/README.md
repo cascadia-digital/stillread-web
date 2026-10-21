@@ -2,14 +2,13 @@
 
 A Cloudflare Worker in front of `downloads.stillread.app`. It serves files from R2
 with the same headers as before (Range requests, ETag, 304s, the cache-control set
-at upload), and counts each `.dmg` download in Workers Analytics Engine.
+at upload), and counts each `.dmg` download in a D1 table: one running total per
+day, file and source.
 
-Each count records only the file name and its source: `download` from a browser,
+A count records only the day, the file name and the source: `download` from a browser,
 or `update` from Sparkle. It stores no IP addresses, user agents or locations.
 HEAD requests, 304s, later chunks of a split download, errors and obvious bots
 and link previews aren't counted.
-
-Analytics Engine keeps data for three months.
 
 ## Test
 
@@ -20,6 +19,7 @@ Analytics Engine keeps data for three months.
 ## Deploy
 
     npx wrangler login        # once, in the browser
+    npx wrangler d1 migrations apply stillread-downloads --remote   # new tables, if any
     npm run deploy
 
 Deploying attaches the route in `wrangler.jsonc`. To undo, remove the route or run
@@ -27,13 +27,7 @@ Deploying attaches the route in `wrangler.jsonc`. To undo, remove the route or r
 
 ## Read the counts
 
-Create a Cloudflare API token with only **Account → Account Analytics → Read**, then
-make `~/.config/stillread/cloudflare.env` (chmod 600, never committed):
+With the same wrangler login:
 
-    CF_ACCOUNT_ID=...
-    CF_ANALYTICS_TOKEN=...
-
-Then run:
-
-    ./counts.sh          # last 30 days, by day, file and source
+    ./counts.sh          # last 30 days, by day, source and file, plus totals
     ./counts.sh 7
