@@ -3,6 +3,22 @@
     <channel>
         <title>Stillread</title>
         <item>
+            <title>1.1.0</title>
+            <pubDate>Fri, 23 Oct 2026 14:09:24 -0700</pubDate>
+            <link>https://stillread.app</link>
+            <sparkle:version>30</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<p>Tabs, for when one window is enough.</p>
+<ul>
+<li>Turn on &quot;Open files and folders in tabs&quot; in Settings → Windows, and opening a new file or folder joins your current window as a tab instead of opening a new one</li>
+<li>Drag a tab out to give it its own window, and merge windows back together from the Window menu</li>
+<li>Off by default: nothing changes unless you turn it on</li>
+</ul>
+]]></description>
+            <enclosure url="https://downloads.stillread.app/Stillread-1.1.0.dmg" length="5658971" type="application/octet-stream" sparkle:edSignature="MXG0KxwW4jO2qymD2OXkPMfi2ditAQqJB/wOaBAL8OoN2POLN03ueU5HSJGxjezsr3w+Vof10RPw4zg2xLx9Ag=="/>
+        </item>
+        <item>
             <title>1.0.3</title>
             <pubDate>Tue, 20 Oct 2026 16:02:56 -0700</pubDate>
             <link>https://stillread.app</link>
@@ -30,20 +46,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://downloads.stillread.app/Stillread-1.0.2.dmg" length="5686910" type="application/octet-stream" sparkle:edSignature="VrxM0ikCeWv5Gw3j58YP6OM3thNLQy++WUoQ4PvnoQWI4eLJ6TDICAr+6vL4HHIw7FHOSEa9p6NX3XAowjhiAQ=="/>
-        </item>
-        <item>
-            <title>1.0.1</title>
-            <pubDate>Tue, 20 Oct 2026 12:03:29 -0700</pubDate>
-            <link>https://stillread.app</link>
-            <sparkle:version>16</sparkle:version>
-            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<p>A small update to how Stillread talks about licence keys.</p>
-<ul>
-<li>If a licence key can&#x27;t be activated because of a problem on our side, Stillread now says so plainly and points you to support, instead of suggesting the key was refunded or revoked</li>
-</ul>
-]]></description>
-            <enclosure url="https://downloads.stillread.app/Stillread-1.0.1.dmg" length="6718504" type="application/octet-stream" sparkle:edSignature="va+kI6Ewg72oR33TYus8uwtlz2YyYEleTIKWRibbyHClp61qakFJnfuPvbZZTsT2Oz6uj/1T5EflAPUcFAUHAQ=="/>
         </item>
     </channel>
 </rss>
