@@ -32,7 +32,7 @@ export const customerPortalUrl = 'https://polar.sh/cascadia-digital-inc/portal';
  */
 export const sale = {
     code: 'STILLBLACK50',
-    start: '2026-11-27T00:00:00-08:00', // Friday, Nov 27, midnight in Vancouver
+    start: '2026-11-23T00:00:00-08:00', // Monday, Nov 23 (started early, on Michael's call)
     end: '2026-11-30T00:00:00-08:00', // the end of Sunday, Nov 29 in Vancouver
     ends: 'Sunday, November 29',
 };
