@@ -110,3 +110,7 @@ html {
     outline-offset: 4px;
     &:focus-visible { outline: 2px solid var(--water-ink); }
 }
+
+/* The Black Friday sale (see `sale` in config.ts). Hidden unless the head script turns it on. */
+html:not([data-sale="on"]) [data-sale-only] { display: none !important; }
+html[data-sale="on"] [data-sale-off] { display: none !important; }

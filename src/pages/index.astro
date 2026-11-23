@@ -4,7 +4,7 @@ import Shot from '../components/Shot.astro';
 import Button from '../components/Button.astro';
 import { Image } from 'astro:assets';
 import icon from '../assets/icon.png';
-import { downloadUrl, checkoutUrl, price, minimumMacOS } from '../config';
+import { downloadUrl, checkoutUrl, saleCheckoutUrl, sale, price, minimumMacOS } from '../config';
 
 const gfm = ['Tables', 'Task lists', 'Footnotes', 'GitHub alerts', 'Mermaid diagrams', 'Highlighted code'];
 
@@ -138,7 +138,7 @@ const editing = [
                 <div class="page-prose mt-5 text-ink-soft">
                     <p>When something needs fixing, press ⌘E and the page becomes its Markdown, in the same typeface and width, so you never lose your place. Headings and emphasis still look like themselves, and the Markdown marks fade into the background.</p>
                     <p>Changes save on their own. Your file is written back exactly as it was apart from what you typed. And if another app changes the note while you're editing, Stillread asks which version to keep instead of overwriting either.</p>
-                    <p>Editing is a one-time {price} unlock. Reading stays free. <a href="#pricing">See pricing</a></p>
+                    <p>Editing is a one-time {price} unlock. <span data-sale-only>Through {sale.ends} it's half price with code {sale.code}. </span>Reading stays free. <a href="#pricing">See pricing</a></p>
                 </div>
             </div>
             <div class="mt-12">
@@ -176,11 +176,16 @@ const editing = [
 
             <div class="rounded-2xl bg-paper-deep p-7 ring-1 ring-rule">
                 <h3 class="font-sans text-sm font-medium tracking-wide text-ink-faint uppercase">Editing</h3>
-                <p class="mt-3 text-4xl font-semibold tracking-tight">{price} <span class="font-sans text-base font-normal text-ink-faint">USD, once</span></p>
+                <p data-sale-off class="mt-3 text-4xl font-semibold tracking-tight">{price} <span class="font-sans text-base font-normal text-ink-faint">USD, once</span></p>
+                <p data-sale-only class="mt-3 text-4xl font-semibold tracking-tight">Half price <span class="font-sans text-base font-normal text-ink-faint"><s aria-hidden="true">{price}</s><span class="sr-only">was {price},</span> USD, once</span></p>
+                <p data-sale-only class="mt-3 font-sans text-[0.95rem] text-ink-soft">Black Friday: use code <code class="rounded bg-paper px-1.5 py-0.5 font-mono text-[0.9em] font-semibold text-ink">{sale.code}</code> through {sale.ends}. The Buy button fills it in for you.</p>
                 <ul class="mt-6 space-y-2.5 font-sans text-[0.95rem] text-ink-soft">
                     {editing.map((item) => <li class="flex gap-2.5"><span class="text-water-deep" aria-hidden="true">—</span>{item}</li>)}
                 </ul>
-                <div class="mt-8"><Button href={checkoutUrl} label={`Buy Editing, ${price}`} /></div>
+                <div class="mt-8">
+                    <span data-sale-off><Button href={checkoutUrl} label={`Buy Editing, ${price}`} /></span>
+                    <span data-sale-only><Button href={saleCheckoutUrl} label="Buy Editing, half price" /></span>
+                </div>
             </div>
         </div>
 

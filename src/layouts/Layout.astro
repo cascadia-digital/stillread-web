@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import icon from '../assets/icon.png';
-import { fathomSite } from '../config';
+import { fathomSite, sale } from '../config';
 
 interface Props {
     title: string;
@@ -52,6 +52,16 @@ const nav = [
         <meta name="twitter:image:alt" content={ogAlt} />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script is:inline define:vars={{ start: sale.start, end: sale.end }}>
+            // Turn the sale on before the page paints, so nothing flashes or shifts.
+            // Everything marked data-sale-only stays hidden unless this sets data-sale="on".
+            try {
+                var mode = new URLSearchParams(location.search).get('sale');
+                var now = Date.now();
+                var on = mode === 'preview' || (mode !== 'off' && now >= Date.parse(start) && now < Date.parse(end));
+                if (on) document.documentElement.setAttribute('data-sale', 'on');
+            } catch (_) {}
+        </script>
         {fathomSite && <script src="https://cdn.usefathom.com/script.js" data-site={fathomSite} defer></script>}
         {fathomSite && (
             <script is:inline>
@@ -71,6 +81,21 @@ const nav = [
     </head>
     <body class="min-h-screen bg-paper font-serif text-ink antialiased">
         <a href="#main" class="focus-ring sr-only rounded bg-paper px-3 py-2 font-sans text-sm focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50">Skip to content</a>
+
+        <aside data-sale-only aria-label="Black Friday sale" class="border-b border-rule bg-water/40 font-sans text-sm text-ink">
+            <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-3 gap-y-1.5 px-4 py-2.5 text-center sm:px-8">
+                <p>
+                    <span class="font-semibold">Black Friday:</span> Editing is half price with code
+                    <code class="rounded bg-paper px-1.5 py-0.5 font-mono text-[0.9em] font-semibold tracking-wide">{sale.code}</code>,
+                    through {sale.ends}.
+                </p>
+                <span class="flex items-center gap-3">
+                    <button type="button" data-copy-code={sale.code} class="focus-ring cursor-pointer rounded-full px-3 py-0.5 ring-1 ring-water-deep hover:bg-paper/60">Copy code</button>
+                    <a href="/#pricing" class="focus-ring rounded text-water-ink underline underline-offset-3 hover:text-ink">See pricing</a>
+                </span>
+                <span class="sr-only" role="status" data-copy-status></span>
+            </div>
+        </aside>
 
         <header class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 pt-5 sm:px-8 sm:pt-7">
             <a href="/" class="focus-ring flex items-center gap-2.5 rounded-md">
@@ -100,5 +125,19 @@ const nav = [
                 <p>© {year} <a href="https://cascadia.digital" class="focus-ring rounded hover:text-ink">Cascadia Digital Inc.</a></p>
             </div>
         </footer>
+        <script is:inline>
+            // Copy the sale code. The button only shows while the sale is on.
+            document.addEventListener('click', function (e) {
+                var button = e.target instanceof Element && e.target.closest('[data-copy-code]');
+                if (!button || !navigator.clipboard) return;
+                navigator.clipboard.writeText(button.getAttribute('data-copy-code')).then(function () {
+                    var label = button.textContent;
+                    button.textContent = 'Copied';
+                    var status = document.querySelector('[data-copy-status]');
+                    if (status) status.textContent = 'Code copied';
+                    setTimeout(function () { button.textContent = label; if (status) status.textContent = ''; }, 2000);
+                });
+            });
+        </script>
     </body>
 </html>
